@@ -1,0 +1,22 @@
+<h1>Mon catalogue :</h1>
+
+<h2>Liste des produits avec un prix à définir :</h2>
+<div *ngFor="let product of products">
+  <div *ngIf="product.price === undefined">
+    <p>{{product.name}} : Prix à définir</p>
+  </div>
+</div>
+
+<h2>Liste des produits en promotion :</h2>
+<div *ngFor="let product of products">
+  <div *ngIf="product.promo">
+    <p>{{product.name}} : {{product.price}} € ({{product.promo}} de réduction)</p>
+  </div>
+</div>
+
+<h2>Liste des autres produits :</h2>
+<div *ngFor="let product of products">
+  <div *ngIf="product.price !== null && !product.promo">
+    <p>{{product.name}} : {{product.price}} €</p>
+  </div>
+</div>
